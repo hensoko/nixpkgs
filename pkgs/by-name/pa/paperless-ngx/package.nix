@@ -26,13 +26,13 @@
   xorg,
 }:
 let
-  version = "2.14.7";
+  version = "0-unstable-2025-02-25";
 
   src = fetchFromGitHub {
     owner = "paperless-ngx";
     repo = "paperless-ngx";
-    tag = "v${version}";
-    hash = "sha256-p3eUEb/ZPK11NbqE4LU+3TE1Xny9sjfYvVVmABkoAEQ=";
+    rev = "d364436817ca678fc23d6b0589b7c2fd7774af3a";
+    hash = "sha256-QSxtdwPFZRihRvSbVibzrlRQ7QL+KM9MDOepaUXLek8=";
   };
 
   # subpath installation is broken with uvicorn >= 0.26
@@ -86,7 +86,7 @@ let
       cd src-ui
     '';
 
-    npmDepsHash = "sha256-hK7Soop9gBZP4m2UzbEIAsLkPKpbQkLmVruY2So4CSs=";
+    npmDepsHash = "sha256-uLSdqD1NiDj5Syh0qdo36OODvjkTdjEetHx8ZdoAfIw=";
 
     nativeBuildInputs =
       [
@@ -171,6 +171,8 @@ python.pkgs.buildPythonApplication rec {
       django-soft-delete
       djangorestframework
       djangorestframework-guardian2
+      drf-spectacular
+      drf-spectacular-sidecar
       drf-writable-nested
       filelock
       flower
